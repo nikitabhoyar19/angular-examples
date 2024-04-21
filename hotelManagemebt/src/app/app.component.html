@@ -1,0 +1,18 @@
+<h1>{{ title }} Application</h1>
+
+<div [ngSwitch]="role">
+  <div *ngSwitchCase="'admin'">
+    <h2>Werlcom Admin!</h2>
+    <p>Congratulations! Your app is running</p>
+    <p>If you want to see other data then switch role to user</p>
+  </div>
+
+  <div *ngSwitchCase="'user'">
+    <p>Congratulations! Your app is running</p>
+    <app-rooms></app-rooms>
+  </div>
+
+  <div *ngSwitchDefault>
+    <p>You are not authorized to view this page.</p>
+  </div>
+</div>

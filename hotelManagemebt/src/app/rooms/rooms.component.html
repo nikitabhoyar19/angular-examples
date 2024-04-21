@@ -1,0 +1,44 @@
+<!-- <p>rooms works! {{title}}</p> -->
+<!-- <h5>Rooms are {{noOfRooms}}</h5> -->
+
+<button (click) = "countOfRooms()">Please Click to hide</button>
+
+<div [hidden]="hideRooms">
+    No of Rooms : 
+    <div [ngStyle]="{'color' : noOfRooms > 3 ? 'green' : 'red'}">
+    <div [innerText]="noOfRooms"></div>
+    </div>
+</div>
+
+<div *ngIf = "noOfRooms > 10">Rooms are more than 10 here! </div>
+
+<!-- <ng-template [ngIf]="noOfRooms > 0">
+    <div>Content to render when condition is true.</div>
+</ng-template> -->
+
+<div class="table-class" *ngIf = "noOfRooms > 2">
+    <h1>Its an table for Room data</h1>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>type</th>
+            <th>name</th>
+            <th>type</th>
+            <th>price</th>
+            <th>available?</th>
+            <th>MFD</th>
+        </tr>
+        <tr 
+        [ngClass]=" e ? 'even' : 'odd'"
+        *ngFor="let room of roomList | slice : 0:3; let e = even; let o = odd;">
+            <td>{{room.id}}</td>
+            <td>{{e ? "Even" : "Odd"}}</td>
+             <td>{{room.name | titlecase}}</td> <!-- built in pipe -->
+            <td>{{room.type | uppercase}}</td>
+            <td>{{room.price | currency : 'INR'}}</td>
+            <td>{{room.available }}</td>
+            <td>{{room.mfd | date}}</td>
+        </tr>
+    </table>
+</div>
+
