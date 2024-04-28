@@ -1,25 +1,74 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import room from './rooms';
+import {Room} from './rooms';
+import { RoomListComponent } from "./room-list/room-list.component";
 
 @Component({
-  selector: 'app-rooms',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './rooms.component.html',
-  styleUrl: './rooms.component.css'
+    selector: 'app-rooms',
+    standalone: true,
+    templateUrl: './rooms.component.html',
+    styleUrl: './rooms.component.css',
+    imports: [CommonModule, RoomListComponent]
 })
-export class RoomsComponent {
+export class RoomsComponent implements OnInit{
     title = "Shera"
-    noOfRooms = room.length
+    noOfRooms = 5
     hideRooms = false
-    roomList = room
+    roomList : Room[] = [ {
+        id: 0,
+        name: "cozy bedsheet",
+        type: "Double",
+        price: 50,
+        available: true,
+        mfd : new Date('2024-04-15'),
+        rating : 4.3
+    }, {
+      id: 1,
+      name: "Cozy Bedroom",
+      type: "Single",
+      price: 50,
+      available: true,
+      mfd : new Date('2024-04-15'),
+      rating : 2.667
+    },
+    {
+      id: 2,
+      name: "Cozy Bedroom",
+      type: "Single",
+      price: 50,
+      available: true,
+      mfd : new Date('2024-04-15'),
+      rating : 2.667
+    },
+    {
+      id: 3,
+      name: "Cozy Bedroom",
+      type: "Single",
+      price: 50,
+      available: true,
+      mfd : new Date('2024-04-15'),
+      rating : 2.667
+    }, 
+    {
+        id: 5,
+        name: "Cozy Bedroom",
+        type: "Single",
+        price: 50,
+        available: true,
+        mfd : new Date('2024-04-15'),
+        rating : 2.667
+    }
+    ];
     available = true
+    
+    selectRoom(r:Room) {
+      console.log(r);
+    }
 
     countOfRooms() {
       //throw new Error('Method not implemented.');
       this.hideRooms = !this.hideRooms;
     }
 
-    //ngOnInit() : void{}
+    ngOnInit() : void{}
 }

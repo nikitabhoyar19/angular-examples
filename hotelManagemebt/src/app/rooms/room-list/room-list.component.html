@@ -1,0 +1,34 @@
+<div>
+    <h1>Its an table for Room data</h1>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>type</th>
+            <th>name</th>
+            <th>type</th>
+            <th>price</th>
+            <th>available?</th>
+            <th>MFD</th>
+            <th>Ratings</th>
+            <th>Select Room</th>
+        </tr>
+        <tr 
+        [ngClass]=" e ? 'even' : 'odd'"
+        *ngFor="let r of rooms | slice : 0:4; let e = even; let o = odd;">
+            <td>{{r.id}}</td>
+            <td>{{e ? "Even" : "Odd"}}</td>
+             <td>{{r.name | titlecase}}</td> <!-- built in pipe -->
+            <td>{{r.type | uppercase}}</td>
+            <td>{{r.price | currency : 'INR'}}</td>
+            <td>{{r.available }}</td>
+            <td>{{r.mfd | date}}</td>
+            <td>{{r.rating | number : '1.0-0'}}</td>
+            <td>
+                <button class="btn btn-primary"
+                (click)="selectRoom(r)">
+                 Select
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

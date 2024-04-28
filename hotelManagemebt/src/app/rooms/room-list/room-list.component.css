@@ -1,0 +1,11 @@
+.table-class table th, td{
+    padding: 10px;
+}
+
+.even {
+    background-color: pink;
+}
+
+.odd {
+    background-color: thistle;
+}

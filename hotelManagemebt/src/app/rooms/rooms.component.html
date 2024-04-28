@@ -17,28 +17,7 @@
 </ng-template> -->
 
 <div class="table-class" *ngIf = "noOfRooms > 2">
-    <h1>Its an table for Room data</h1>
-    <table>
-        <tr>
-            <th>id</th>
-            <th>type</th>
-            <th>name</th>
-            <th>type</th>
-            <th>price</th>
-            <th>available?</th>
-            <th>MFD</th>
-        </tr>
-        <tr 
-        [ngClass]=" e ? 'even' : 'odd'"
-        *ngFor="let room of roomList | slice : 0:3; let e = even; let o = odd;">
-            <td>{{room.id}}</td>
-            <td>{{e ? "Even" : "Odd"}}</td>
-             <td>{{room.name | titlecase}}</td> <!-- built in pipe -->
-            <td>{{room.type | uppercase}}</td>
-            <td>{{room.price | currency : 'INR'}}</td>
-            <td>{{room.available }}</td>
-            <td>{{room.mfd | date}}</td>
-        </tr>
-    </table>
+    <app-room-list [rooms]="roomList"
+    (selectedRoom)="selectRoom($event)"></app-room-list>
 </div>
 

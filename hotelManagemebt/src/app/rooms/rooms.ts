@@ -1,11 +1,21 @@
-const room = [
-    {
+export interface Room {
+    id : number,
+    name : string,
+    type : string,
+    price : number,
+    available : boolean,
+    mfd : Date,
+    rating : number
+}
+/*
+  {
         "id": 0,
         "name": "cozy bedsheet",
         "type": "Double",
         "price": 50,
         "available": true,
-        "mfd" : "2024-04-15"
+        "mfd" : "2024-04-15",
+        "rating" : 4.3
     },
     {
       "id": 1,
@@ -13,7 +23,8 @@ const room = [
       "type": "Single",
       "price": 50,
       "available": true,
-      "mfd" : "2024-04-15"
+      "mfd" : "2024-04-15",
+      "rating" : 2.667
     },
     {
       "id": 2,
@@ -21,7 +32,8 @@ const room = [
       "type": "Double",
       "price": 100,
       "available": false,
-      "mfd" : "2024-04-15"
+      "mfd" : "2024-04-15",
+      "rating" : 4.9
     },
     {
       "id": 3,
@@ -29,8 +41,7 @@ const room = [
       "type": "Suite",
       "price": 200,
       "available": true,
-      "mfd" : "2024-04-15"
+      "mfd" : "2024-04-15",
+      "rating" : 1.5
     },
-]
-
-export default room;
+*/
