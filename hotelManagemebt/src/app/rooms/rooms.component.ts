@@ -59,16 +59,19 @@ export class RoomsComponent implements OnInit{
         rating : 2.667
     }
     ];
+    selectedRoom!: RoomListComponent;
     available = true
     
-    selectRoom(r:Room) {
-      console.log(r);
-    }
-
     countOfRooms() {
       //throw new Error('Method not implemented.');
       this.hideRooms = !this.hideRooms;
     }
 
     ngOnInit() : void{}
+
+    selectRoom(room:Room) {
+      console.log(room);
+      //this.selectedRoom = room;
+    }
+
 }

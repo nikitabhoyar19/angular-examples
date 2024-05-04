@@ -18,6 +18,11 @@
 
 <div class="table-class" *ngIf = "noOfRooms > 2">
     <app-room-list [rooms]="roomList"
-    (selectedRoom)="selectRoom($event)"></app-room-list>
+    (selectedRoom)="selectRoom($event)">
+    </app-room-list>
 </div>
 
+<p>not working on ui only on console</p>
+<div *ngIf="selectedRoom">
+   {{selectedRoom | json}}
+</div>
