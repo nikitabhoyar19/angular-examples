@@ -1,1 +1,29 @@
-<span>{{ title }}</span>
+<span>{{ componentTitle }}</span>
+<h1>What would you like to do today?</h1>
+
+<input
+  #newItem
+  placeholder="add an item"
+  (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+  class="lg-text-input"
+  id="addItemInput" />
+
+<button class="btn-primary" (click)="addItem(newItem.value);newItem.value = ''">Add</button>
+
+<h2>
+  {{items.length}}
+  <span *ngIf="items.length === 1; else elseBlock">item</span>
+  <ng-template #elseBlock>items</ng-template>
+</h2>
+
+<div>
+<ul>
+  <li *ngFor="let i of items">
+    <app-item (removed)="remove(i)" [item]="i"></app-item>
+  </li>
+</ul>
+</div>
+
+<ul class="listOfItems">
+  <li *ngFor="let item of items">{{item.description}}</li>
+</ul>
